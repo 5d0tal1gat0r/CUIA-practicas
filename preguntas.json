@@ -1,0 +1,762 @@
+[
+  {
+    "pregunta": "OpenCV utiliza el espacio de nombres cv2 en lugar de cv porque...",
+    "opciones": {
+      "a": "cv es una versión obsoleta que ya no existe.",
+      "b": "Se creó cv2 cuando se empezó a usar NumPy para matrices.",
+      "c": "cv2 indica que es la versión 2 de OpenCV.",
+      "d": "Es un error de documentación; ambos son equivalentes."
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Espacio de nombres cv2",
+      "porque_correcta": "La documentación indica que cv2 se creó cuando OpenCV comenzó a usar NumPy para la representación matricial.",
+      "porque_erroneas": {
+        "a": "cv sigue existiendo en la documentación, pero se usa cv2.",
+        "c": "No se refiere a la versión 2 del software.",
+        "d": "No son equivalentes; cv2 es el namespace correcto en Python."
+      },
+      "resumen": "cv2 nace de la integración con NumPy."
+    }
+  },
+  {
+    "pregunta": "Por defecto, OpenCV lee las imágenes en color en el espacio...",
+    "opciones": {
+      "a": "RGB",
+      "b": "BGR",
+      "c": "HSV",
+      "d": "Grayscale"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Espacio de color por defecto",
+      "porque_correcta": "OpenCV mantiene BGR por compatibilidad histórica (era el orden más popular cuando se creó).",
+      "porque_erroneas": {
+        "a": "El orden RGB es estándar pero no el que usa OpenCV por defecto.",
+        "c": "HSV requiere conversión explícita con cvtColor.",
+        "d": "Grayscale requiere indicarlo con flags en imread."
+      },
+      "resumen": "OpenCV usa BGR por defecto al leer imágenes en color."
+    }
+  },
+  {
+    "pregunta": "En OpenCV, para acceder a un píxel en la posición (x,y) de una imagen debemos usar...",
+    "opciones": {
+      "a": "imagen[x, y]",
+      "b": "imagen[y, x]",
+      "c": "imagen(x, y)",
+      "d": "imagen.getPixel(x, y)"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Indexación de matrices en OpenCV",
+      "porque_correcta": "En pantalla usamos (x,y) = (columna, fila), pero en la matriz de NumPy primero va la dimensión de filas (y) y luego columnas (x).",
+      "porque_erroneas": {
+        "a": "Invierte el orden; accedería a (fila, columna) como si fuera (columna, fila).",
+        "c": "Los paréntesis no se usan para indexar matrices NumPy.",
+        "d": "No existe el método getPixel en OpenCV/NumPy."
+      },
+      "resumen": "En la matriz: imagen[fila, columna] = imagen[y, x]."
+    }
+  },
+  {
+    "pregunta": "El espacio de color HSV en OpenCV tiene el rango de H (tono) en...",
+    "opciones": {
+      "a": "[0, 360]",
+      "b": "[0, 180]",
+      "c": "[0, 255]",
+      "d": "[0, 100]"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Rango de H en HSV (OpenCV)",
+      "porque_correcta": "OpenCV escala el tono al rango [0, 180] para que quepa en 8 bits, a diferencia del estándar [0, 360].",
+      "porque_erroneas": {
+        "a": "[0, 360] es el rango teórico, pero OpenCV lo escala.",
+        "c": "Ese es el rango de S y V, no de H.",
+        "d": "No existe ese rango para H en OpenCV."
+      },
+      "resumen": "OpenCV usa H en [0, 180], S y V en [0, 255]."
+    }
+  },
+  {
+    "pregunta": "Para conservar el canal alfa al leer una imagen con cv2.imread debemos usar...",
+    "opciones": {
+      "a": "cv2.IMREAD_GRAYSCALE",
+      "b": "cv2.IMREAD_UNCHANGED",
+      "c": "cv2.IMREAD_COLOR",
+      "d": "cv2.IMREAD_ANYDEPTH"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Lectura con canal alfa",
+      "porque_correcta": "IMREAD_UNCHANGED conserva todos los canales incluyendo el alfa; sin flags por defecto se descarta alfa y se convierte a BGR.",
+      "porque_erroneas": {
+        "a": "Fuerza la lectura en escala de grises.",
+        "c": "Es el comportamiento por defecto que descarta alfa.",
+        "d": "Permite cargar imágenes de 16/32 bits, no afecta al canal alfa."
+      },
+      "resumen": "IMREAD_UNCHANGED mantiene el canal alfa intacto."
+    }
+  },
+  {
+    "pregunta": "¿Qué tipo de datos usa OpenCV para almacenar las imágenes en matrices?",
+    "opciones": {
+      "a": "float32",
+      "b": "int16",
+      "c": "uint8",
+      "d": "uint16"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Tipo de dato de píxeles",
+      "porque_correcta": "Las imágenes se almacenan como matrices de enteros de 8 bits sin signo (uint8), con valores de 0 a 255.",
+      "porque_erroneas": {
+        "a": "float32 se usa en procesado pero no en lectura por defecto.",
+        "b": "int16 no es el tipo nativo de imágenes en OpenCV.",
+        "d": "uint16 se usa para imágenes de 16 bits, no es el estándar."
+      },
+      "resumen": "uint8 = 8 bits sin signo, rango [0, 255]."
+    }
+  },
+  {
+    "pregunta": "Para dibujar un rectángulo relleno en OpenCV, el parámetro de grosor debe ser...",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "-1",
+      "d": "No se puede rellenar con rectangle"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Relleno en dibujo OpenCV",
+      "porque_correcta": "En cv2.rectangle y cv2.circle, grosor=-1 indica relleno completo de la figura.",
+      "porque_erroneas": {
+        "a": "0 dibuja el contorno con el grosor mínimo (1 píxel aprox).",
+        "b": "1 dibuja solo el borde con grosor 1.",
+        "d": "Sí se puede rellenar usando -1 como grosor."
+      },
+      "resumen": "Grosor -1 = figura rellena en OpenCV."
+    }
+  },
+  {
+    "pregunta": "La función cv2.rotate permite rotar una imagen en múltiplos de...",
+    "opciones": {
+      "a": "45 grados",
+      "b": "90 grados",
+      "c": "180 grados",
+      "d": "Cualquier ángulo"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Rotación en OpenCV",
+      "porque_correcta": "cv2.rotate solo permite rotaciones de 90°, 180° y 270° mediante flags como ROTATE_90_CLOCKWISE.",
+      "porque_erroneas": {
+        "a": "No admite 45°; para ángulos arbitrarios se usa getRotationMatrix2D.",
+        "c": "180° está incluido, pero la pregunta es sobre el paso mínimo (90°).",
+        "d": "Para cualquier ángulo se necesita una transformación afín."
+      },
+      "resumen": "cv2.rotate rota en múltiplos de 90°."
+    }
+  },
+  {
+    "pregunta": "Para obtener el efecto espejo de una imagen respecto al eje X (vertical) usamos cv2.flip con flipCode=...",
+    "opciones": {
+      "a": "0",
+      "b": "1",
+      "c": "-1",
+      "d": "2"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Efecto espejo con flip",
+      "porque_correcta": "flipCode=0 invierte el eje X (espejo vertical); 1 invierte el eje Y (espejo horizontal); -1 ambos.",
+      "porque_erroneas": {
+        "b": "1 es espejo respecto al eje Y (horizontal).",
+        "c": "-1 invierte ambos ejes a la vez.",
+        "d": "2 no es un valor válido para flipCode."
+      },
+      "resumen": "flipCode 0 = eje X, 1 = eje Y, -1 = ambos."
+    }
+  },
+  {
+    "pregunta": "En el procesado de imágenes, un kernel es...",
+    "opciones": {
+      "a": "Una función de dibujo de OpenCV.",
+      "b": "Una matriz pequeña que se desliza sobre la imagen para aplicar filtros.",
+      "c": "Un formato de compresión de imágenes.",
+      "d": "Un tipo de espacio de color."
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Kernel en procesado de imágenes",
+      "porque_correcta": "El kernel es una matriz de convolución que se aplica sobre cada píxel y su vecindad para filtrar.",
+      "porque_erroneas": {
+        "a": "Los kernels no son funciones de dibujo.",
+        "c": "No tiene relación con compresión.",
+        "d": "Los espacios de color son BGR, HSV, etc."
+      },
+      "resumen": "Kernel = matriz de convolución para filtros."
+    }
+  },
+  {
+    "pregunta": "El efecto croma (chromakey) se facilita usando el espacio de color...",
+    "opciones": {
+      "a": "BGR",
+      "b": "RGB",
+      "c": "HSV",
+      "d": "Grayscale"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Croma y espacios de color",
+      "porque_correcta": "En HSV el tono (H) está aislado en una sola componente, facilitando seleccionar un rango de colores.",
+      "porque_erroneas": {
+        "a": "En BGR el color está mezclado en tres canales.",
+        "b": "En RGB también está distribuido en tres canales.",
+        "d": "Grayscale pierde toda la información de color."
+      },
+      "resumen": "HSV separa el tono, facilitando el croma."
+    }
+  },
+  {
+    "pregunta": "Para crear una máscara de color en OpenCV a partir de rangos HSV usamos...",
+    "opciones": {
+      "a": "cv2.calcHist",
+      "b": "cv2.inRange",
+      "c": "cv2.threshold",
+      "d": "cv2.cvtColor"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Máscaras por rango de color",
+      "porque_correcta": "cv2.inRange devuelve una máscara binaria con los píxeles que están dentro del rango especificado.",
+      "porque_erroneas": {
+        "a": "calcHist calcula histogramas, no máscaras.",
+        "c": "threshold binariza por umbral único, no por rango HSV.",
+        "d": "cvtColor convierte espacios de color."
+      },
+      "resumen": "inRange genera máscaras binarias por rango de valores."
+    }
+  },
+  {
+    "pregunta": "En calibración de cámara, la distorsión radial hace que las líneas rectas en 3D...",
+    "opciones": {
+      "a": "Aparezcan más brillantes",
+      "b": "Aparezcan con cierta curvatura en 2D",
+      "c": "Cambien de color",
+      "d": "Desaparezcan de la imagen"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Distorsión radial",
+      "porque_correcta": "La distorsión radial curva las líneas rectas proyectadas; se corrige con los coeficientes k1, k2, k3.",
+      "porque_erroneas": {
+        "a": "La distorsión geométrica no afecta al brillo.",
+        "c": "No modifica el color de las líneas.",
+        "d": "Las líneas no desaparecen, se curvan."
+      },
+      "resumen": "Distorsión radial = curvatura de líneas rectas."
+    }
+  },
+  {
+    "pregunta": "Para calibrar una cámara con OpenCV usando ArUco se emplea un patrón...",
+    "opciones": {
+      "a": "De círculos concéntricos",
+      "b": "Ajedrezado con marcadores ArUco (Charuco)",
+      "c": "De líneas paralelas",
+      "d": "De puntos aleatorios"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Patrón Charuco",
+      "porque_correcta": "Charuco combina un tablero ajedrezado con marcadores ArUco, permitiendo oclusiones parciales.",
+      "porque_erroneas": {
+        "a": "Los círculos concéntricos no son el patrón ArUco.",
+        "c": "Las líneas paralelas no se usan en calibración ArUco.",
+        "d": "Los puntos aleatorios no son un patrón de calibración estándar."
+      },
+      "resumen": "Charuco = ajedrez + ArUco, robusto ante oclusiones."
+    }
+  },
+  {
+    "pregunta": "La matriz característica de una cámara (camera matrix) incluye...",
+    "opciones": {
+      "a": "Los coeficientes de distorsión radial y tangencial",
+      "b": "La distancia focal y el centro óptico",
+      "c": "La resolución de la imagen en píxeles",
+      "d": "El tipo de objetivo utilizado"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Camera matrix",
+      "porque_correcta": "La matriz 3x3 contiene fx, fy (distancia focal) y cx, cy (centro óptico); los coeficientes de distorsión van aparte.",
+      "porque_erroneas": {
+        "a": "Los coeficientes de distorsión son parámetros separados.",
+        "c": "La resolución no forma parte de la matriz intrínseca.",
+        "d": "El tipo de objetivo no se codifica en la matriz."
+      },
+      "resumen": "Camera matrix = distancia focal + centro óptico."
+    }
+  },
+  {
+    "pregunta": "ArUco es un módulo de OpenCV cuyo nombre proviene de...",
+    "opciones": {
+      "a": "Augmented Reality Universal Code",
+      "b": "Augmented Reality University of Córdoba",
+      "c": "Automatic Recognition of Codes",
+      "d": "Advanced Reading of Universal Codes"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Origen del nombre ArUco",
+      "porque_correcta": "ArUco proviene de Augmented Reality University of Córdoba, desarrollado en la Universidad de Córdoba.",
+      "porque_erroneas": {
+        "a": "Universal Code no forma parte del acrónimo.",
+        "c": "No es Automatic Recognition of Codes.",
+        "d": "Advanced Reading no es el significado real."
+      },
+      "resumen": "ArUco = Augmented Reality University of Córdoba."
+    }
+  },
+  {
+    "pregunta": "Para detectar marcadores ArUco en una imagen usamos...",
+    "opciones": {
+      "a": "cv2.aruco.generateImageMarker",
+      "b": "cv2.aruco.ArucoDetector.detectMarkers",
+      "c": "cv2.aruco.getPredefinedDictionary",
+      "d": "cv2.aruco.drawDetectedMarkers"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Detección de marcadores ArUco",
+      "porque_correcta": "detectMarkers del objeto ArucoDetector es el método que encuentra los marcadores en una imagen.",
+      "porque_erroneas": {
+        "a": "generateImageMarker genera imágenes de marcadores, no detecta.",
+        "c": "getPredefinedDictionary obtiene el diccionario, no detecta.",
+        "d": "drawDetectedMarkers dibuja los resultados tras la detección."
+      },
+      "resumen": "detectMarkers realiza la detección en la imagen."
+    }
+  },
+  {
+    "pregunta": "En ArUco, cuantos más marcadores tenga un diccionario...",
+    "opciones": {
+      "a": "Mayor es la distancia entre marcadores y menor la tasa de error",
+      "b": "Menor es la distancia entre marcadores y mayor la tasa de error",
+      "c": "No afecta a la distancia ni a la tasa de error",
+      "d": "Mayor es la distancia y también mayor la tasa de error"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Tamaño del diccionario ArUco",
+      "porque_correcta": "A más marcadores, menor distancia entre ellos (menos diferencias de cuadros), lo que aumenta la probabilidad de confusión.",
+      "porque_erroneas": {
+        "a": "Es al revés: más marcadores = menor distancia.",
+        "c": "El tamaño del diccionario sí afecta a la robustez.",
+        "d": "La distancia disminuye, no aumenta."
+      },
+      "resumen": "Diccionario grande = menor distancia = más errores."
+    }
+  },
+  {
+    "pregunta": "La función cv2.goodFeaturesToTrack implementa el algoritmo de...",
+    "opciones": {
+      "a": "Harris",
+      "b": "Shi-Tomasi",
+      "c": "SIFT",
+      "d": "Hough"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "goodFeaturesToTrack",
+      "porque_correcta": "goodFeaturesToTrack implementa el algoritmo de Shi-Tomasi, una modificación del detector de Harris.",
+      "porque_erroneas": {
+        "a": "Harris está en cornerHarris, no en goodFeaturesToTrack.",
+        "c": "SIFT es un método de puntos clave y descriptores.",
+        "d": "Hough se usa para detectar formas geométricas (círculos, líneas)."
+      },
+      "resumen": "goodFeaturesToTrack = algoritmo de Shi-Tomasi."
+    }
+  },
+  {
+    "pregunta": "Para detectar círculos en una imagen en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.HoughLines",
+      "b": "cv2.HoughCircles",
+      "c": "cv2.findContours",
+      "d": "cv2.cornerHarris"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Detección de círculos",
+      "porque_correcta": "HoughCircles implementa la transformada de Hough adaptada para detectar círculos.",
+      "porque_erroneas": {
+        "a": "HoughLines detecta líneas, no círculos.",
+        "c": "findContours encuentra contornos arbitrarios.",
+        "d": "cornerHarris detecta esquinas, no círculos."
+      },
+      "resumen": "HoughCircles = transformada de Hough para círculos."
+    }
+  },
+  {
+    "pregunta": "SIFT es un algoritmo que...",
+    "opciones": {
+      "a": "Solo detecta puntos clave",
+      "b": "Solo calcula descriptores",
+      "c": "Detecta puntos clave y calcula descriptores",
+      "d": "Detecta bordes"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "SIFT",
+      "porque_correcta": "SIFT (Scale-Invariant Feature Transform) detecta puntos clave invariantes a escala y calcula descriptores para cada uno.",
+      "porque_erroneas": {
+        "a": "FAST solo detecta puntos clave; SIFT hace ambas cosas.",
+        "b": "BRIEF solo calcula descriptores; SIFT hace detección y descripción.",
+        "d": "Canny o Sobel detectan bordes, no SIFT."
+      },
+      "resumen": "SIFT = detección de puntos clave + descriptores."
+    }
+  },
+  {
+    "pregunta": "Para comparar descriptores de dos imágenes y buscar coincidencias usamos...",
+    "opciones": {
+      "a": "detectAndCompute",
+      "b": "drawKeypoints",
+      "c": "BFMatcher o FlannBasedMatcher",
+      "d": "cv2.resize"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Matching de descriptores",
+      "porque_correcta": "BFMatcher (fuerza bruta) y FlannBasedMatcher (vecinos aproximados) comparan descriptores entre imágenes.",
+      "porque_erroneas": {
+        "a": "detectAndCompute obtiene puntos clave y descriptores, no los compara.",
+        "b": "drawKeypoints visualiza puntos clave.",
+        "d": "resize cambia el tamaño de la imagen."
+      },
+      "resumen": "BFMatcher/Flann = comparación de descriptores."
+    }
+  },
+  {
+    "pregunta": "¿Qué framework NO está soportado por el módulo dnn de OpenCV para cargar redes neuronales?",
+    "opciones": {
+      "a": "TensorFlow",
+      "b": "Caffe",
+      "c": "PyTorch",
+      "d": "Darknet"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Frameworks soportados por cv2.dnn",
+      "porque_correcta": "OpenCV soporta Caffe, TensorFlow, Torch, Darknet, OpenVINO y ONNX; PyTorch nativo no está en la lista (aunque ONNX puede servir de puente).",
+      "porque_erroneas": {
+        "a": "TensorFlow está soportado con readNetFromTensorflow.",
+        "b": "Caffe está soportado con readNetFromCaffe.",
+        "d": "Darknet está soportado con readNetFromDarknet."
+      },
+      "resumen": "PyTorch no tiene lector directo en cv2.dnn."
+    }
+  },
+  {
+    "pregunta": "Para convertir una imagen al formato de entrada de una red neuronal en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.dnn.readNet",
+      "b": "cv2.dnn.blobFromImage",
+      "c": "cv2.dnn.setInput",
+      "d": "cv2.dnn.forward"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Preparación de entrada para DNN",
+      "porque_correcta": "blobFromImage normaliza, cambia de tamaño y reordena canales para crear un blob compatible con la red.",
+      "porque_erroneas": {
+        "a": "readNet carga la red, no prepara la imagen.",
+        "c": "setInput asigna el blob ya preparado a la red.",
+        "d": "forward ejecuta la red, no prepara la imagen."
+      },
+      "resumen": "blobFromImage adapta la imagen para la red neuronal."
+    }
+  },
+  {
+    "pregunta": "FaceDetectorYN y FaceRecognizerSF en OpenCV están entrenados con el modelo...",
+    "opciones": {
+      "a": "Caffe",
+      "b": "TensorFlow",
+      "c": "ONNX (YuNet / SFace)",
+      "d": "Darknet"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "FaceDetectorYN / FaceRecognizerSF",
+      "porque_correcta": "Estas clases incorporan modelos YuNet (detección) y SFace (reconocimiento) entrenados y distribuidos en formato ONNX.",
+      "porque_erroneas": {
+        "a": "No usan Caffe; usan ONNX.",
+        "b": "No son modelos TensorFlow.",
+        "d": "Darknet es para YOLO, no para estos modelos de cara."
+      },
+      "resumen": "FaceDetectorYN y FaceRecognizerSF usan modelos ONNX."
+    }
+  },
+  {
+    "pregunta": "En la biblioteca face_recognition, face_encodings devuelve...",
+    "opciones": {
+      "a": "Las coordenadas de los ojos, nariz y boca",
+      "b": "Un vector numérico que caracteriza la cara",
+      "c": "La edad estimada de la persona",
+      "d": "El género de la persona"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "face_encodings",
+      "porque_correcta": "face_encodings genera un vector de 128 valores (embedding) que representa las características faciales de forma compacta.",
+      "porque_erroneas": {
+        "a": "Eso sería landmarks, no encodings.",
+        "c": "No estima edad.",
+        "d": "No determina género."
+      },
+      "resumen": "face_encodings = vector característico (embedding) de la cara."
+    }
+  },
+  {
+    "pregunta": "Para saber si dos caras corresponden a la misma persona con face_recognition usamos...",
+    "opciones": {
+      "a": "face_locations",
+      "b": "face_encodings",
+      "c": "compare_faces",
+      "d": "load_image_file"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Comparación de caras",
+      "porque_correcta": "compare_faces compara una codificación con una lista de codificaciones conocidas y devuelve True/False.",
+      "porque_erroneas": {
+        "a": "face_locations solo encuentra dónde están las caras.",
+        "b": "face_encodings obtiene el vector, pero no compara.",
+        "d": "load_image_file carga la imagen desde disco."
+      },
+      "resumen": "compare_faces determina si dos embeddings corresponden a la misma persona."
+    }
+  },
+  {
+    "pregunta": "La biblioteca SpeechRecognition de Python es...",
+    "opciones": {
+      "a": "Un motor de reconocimiento de voz propio",
+      "b": "Una interfaz que permite usar varios motores/APIs de reconocimiento",
+      "c": "Un sistema de síntesis de voz",
+      "d": "Una herramienta de procesamiento de audio exclusiva de Google"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "SpeechRecognition",
+      "porque_correcta": "SpeechRecognition no es un motor propio, sino una interfaz unificada para múltiples backends (Google, Whisper, Sphinx, etc.).",
+      "porque_erroneas": {
+        "a": "No tiene motor propio; delega en otros.",
+        "c": "No sintetiza voz, la reconoce.",
+        "d": "No es exclusiva de Google; soporta muchos motores."
+      },
+      "resumen": "SpeechRecognition = interfaz unificada para múltiples motores."
+    }
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes motores de reconocimiento de voz puede funcionar offline con SpeechRecognition?",
+    "opciones": {
+      "a": "Google Speech Recognition",
+      "b": "CMU Sphinx",
+      "c": "Microsoft Azure Speech",
+      "d": "Groq Whisper API"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Motores offline",
+      "porque_correcta": "CMU Sphinx (y también Vosk, OpenAI Whisper local, Snowboy) funcionan sin conexión a internet.",
+      "porque_erroneas": {
+        "a": "Google Speech Recognition requiere conexión.",
+        "c": "Azure Speech es un servicio en la nube.",
+        "d": "Groq Whisper API es un servicio web."
+      },
+      "resumen": "CMU Sphinx = reconocimiento offline."
+    }
+  },
+  {
+    "pregunta": "En Python, para lanzar una hebra (thread) en segundo plano usamos...",
+    "opciones": {
+      "a": "threading.Lock",
+      "b": "threading.Thread con start()",
+      "c": "threading.Event",
+      "d": "threading.join"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Lanzamiento de hebras",
+      "porque_correcta": "Se crea un objeto Thread indicando target y args, y se lanza con start().",
+      "porque_erroneas": {
+        "a": "Lock sirve para exclusión mutua, no para lanzar hebras.",
+        "c": "Event sirve para comunicación entre hebras.",
+        "d": "join() espera a que una hebra termine, no la lanza."
+      },
+      "resumen": "Thread + start() lanza una hebra en segundo plano."
+    }
+  },
+  {
+    "pregunta": "Un cerrojo (Lock) en Python se utiliza para...",
+    "opciones": {
+      "a": "Acelerar la ejecución de una hebra",
+      "b": "Definir zonas de exclusión mutua entre hebras",
+      "c": "Crear nuevas hebras automáticamente",
+      "d": "Enviar señales entre procesos"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Cerrojo (Lock)",
+      "porque_correcta": "Lock permite que solo una hebra acceda a un recurso compartido en un momento dado (mutex).",
+      "porque_erroneas": {
+        "a": "No acelera; de hecho puede ralentizar por la espera.",
+        "c": "No crea hebras, solo protege recursos.",
+        "d": "Las señales entre procesos se hacen con Event o pipes."
+      },
+      "resumen": "Lock = exclusión mutua para recursos compartidos."
+    }
+  },
+  {
+    "pregunta": "Para bloquear una hebra hasta que otra hebra active una señal usamos...",
+    "opciones": {
+      "a": "Lock.acquire()",
+      "b": "Event.wait()",
+      "c": "Thread.start()",
+      "d": "Thread.join()"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Comunicación con Event",
+      "porque_correcta": "Event.wait() detiene la hebra hasta que otro hilo llame a Event.set().",
+      "porque_erroneas": {
+        "a": "Lock.acquire() espera a que otro libere el lock, no una señal.",
+        "c": "start() lanza la hebra, no la bloquea.",
+        "d": "join() espera a que otra hebra termine, no a una señal."
+      },
+      "resumen": "Event.wait() = espera activación de señal entre hebras."
+    }
+  },
+  {
+    "pregunta": "La función cv2.findContours devuelve...",
+    "opciones": {
+      "a": "Una lista de círculos detectados",
+      "b": "Los contornos de regiones y su jerarquía",
+      "c": "Las esquinas de Harris",
+      "d": "Los descriptores SIFT"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "findContours",
+      "porque_correcta": "findContours encuentra los bordes de regiones conectadas en una imagen binaria y devuelve contornos + jerarquía.",
+      "porque_erroneas": {
+        "a": "Los círculos se detectan con HoughCircles.",
+        "c": "Las esquinas de Harris se obtienen con cornerHarris.",
+        "d": "Los descriptores SIFT se calculan con detectAndCompute."
+      },
+      "resumen": "findContours = contornos de regiones en imágenes binarias."
+    }
+  },
+  {
+    "pregunta": "Para aplicar una operación morfológica de cierre (closing) en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.erode seguido de cv2.dilate",
+      "b": "cv2.dilate seguido de cv2.erode",
+      "c": "cv2.morphologyEx con cv2.MORPH_CLOSE",
+      "d": "cv2.morphologyEx con cv2.MORPH_OPEN"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Operaciones morfológicas",
+      "porque_correcta": "MORPH_CLOSE aplica dilatación seguida de erosión para cerrar pequeños agujeros en regiones blancas.",
+      "porque_erroneas": {
+        "a": "Erosión + dilatación = apertura (opening), no cierre.",
+        "b": "Dilatación + erosión es conceptualmente el cierre, pero la forma directa es MORPH_CLOSE.",
+        "d": "MORPH_OPEN es apertura (erosión + dilatación)."
+      },
+      "resumen": "MORPH_CLOSE = dilate + erode, cierra agujeros."
+    }
+  },
+  {
+    "pregunta": "La función cv2.warpAffine se utiliza para...",
+    "opciones": {
+      "a": "Aplicar filtros de desenfoque",
+      "b": "Aplicar transformaciones geométricas (traslación, rotación, escala)",
+      "c": "Detectar bordes",
+      "d": "Cambiar el espacio de color"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "warpAffine",
+      "porque_correcta": "warpAffine aplica una transformación afín 2x3 a la imagen, permitiendo rotar, trasladar, escalar y cortar.",
+      "porque_erroneas": {
+        "a": "Los filtros de desenfoque se aplican con GaussianBlur o similar.",
+        "c": "La detección de bordes se hace con Canny o Sobel.",
+        "d": "El cambio de espacio de color se hace con cvtColor."
+      },
+      "resumen": "warpAffine = transformaciones afines 2D."
+    }
+  },
+  {
+    "pregunta": "Para estimar la pose de un marcador ArUco respecto a la cámara necesitamos conocer...",
+    "opciones": {
+      "a": "Solo el diccionario de marcadores",
+      "b": "La matriz de cámara y los coeficientes de distorsión",
+      "c": "El histograma de la imagen",
+      "d": "El espacio de color HSV"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Pose estimation con ArUco",
+      "porque_correcta": "estimatePoseSingleMarkers requiere cameraMatrix y distCoeffs para calcular la rotación y traslación del marcador.",
+      "porque_erroneas": {
+        "a": "El diccionario sirve para detectar e identificar, no para la pose.",
+        "c": "El histograma no interviene en la pose.",
+        "d": "HSV se usa en segmentación por color, no en pose estimation."
+      },
+      "resumen": "Pose ArUco requiere parámetros intrínsecos de la cámara."
+    }
+  },
+  {
+    "pregunta": "El algoritmo SURF para detección de características...",
+    "opciones": {
+      "a": "Está patentado y requiere compilar OpenCV con NONFREE",
+      "b": "Es libre y viene incluido por defecto",
+      "c": "Fue reemplazado por Harris",
+      "d": "No está disponible en OpenCV"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "SURF y patentes",
+      "porque_correcta": "SURF está patentado; para usarlo hay que compilar OpenCV con -DOPENCV_ENABLE_NONFREE=ON.",
+      "porque_erroneas": {
+        "b": "No es libre; tiene restricciones de uso.",
+        "c": "Harris es un detector de esquinas, no reemplazó a SURF.",
+        "d": "Sí está disponible, pero con condiciones."
+      },
+      "resumen": "SURF = patentado, requiere compilación especial."
+    }
+  },
+  {
+    "pregunta": "En una red neuronal cargada con cv2.dnn.readNet, después de setInput la propagación se ejecuta con...",
+    "opciones": {
+      "a": "red.setInput()",
+      "b": "red.forward()",
+      "c": "red.backward()",
+      "d": "red.predict()"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Propagación en DNN",
+      "porque_correcta": "forward() ejecuta la propagación hacia adelante (feedforward) y devuelve las salidas de la red.",
+      "porque_erroneas": {
+        "a": "setInput solo establece la entrada, no propaga.",
+        "c": "backward() sería propagación hacia atrás (entrenamiento), no disponible de forma directa.",
+        "d": "predict() no es el nombre del método en cv2.dnn."
+      },
+      "resumen": "forward() = propagación hacia adelante de la red."
+    }
+  }
+]

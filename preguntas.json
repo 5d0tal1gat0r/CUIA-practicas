@@ -2098,5 +2098,205 @@
       },
       "resumen": "HMP = brillo/resolución limitados, superficies especiales, iluminación."
     }
+  },
+  {
+    "pregunta": "¿Qué imprime el siguiente código?\n```python\nimport cv2\nimg = cv2.imread('photo.jpg')\nprint(img.shape)\n```",
+    "opciones": {
+      "a": "El tamaño del fichero en bytes",
+      "b": "Una tupla (altura, anchura, canales) de la imagen",
+      "c": "La resolución DPI de la imagen",
+      "d": "El espacio de color de la imagen"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Propiedad shape de imágenes OpenCV",
+      "porque_correcta": "imread carga la imagen como matriz NumPy; shape devuelve (filas, columnas, canales).",
+      "porque_erroneas": {
+        "a": "El tamaño del fichero no está en la matriz.",
+        "c": "DPI no forma parte de la matriz de píxeles.",
+        "d": "shape no indica el espacio de color (BGR, RGB, etc.)."
+      },
+      "resumen": "shape = (altura, anchura, canales)."
+    }
+  },
+  {
+    "pregunta": "¿Qué efecto produce este código sobre la imagen?\n```python\nimport cv2\nimg = cv2.imread('face.jpg')\nres = cv2.flip(img, 1)\n```",
+    "opciones": {
+      "a": "Espejo vertical (eje X)",
+      "b": "Espejo horizontal (eje Y)",
+      "c": "Rotación de 180 grados",
+      "d": "Inversión de colores"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "cv2.flip",
+      "porque_correcta": "flipCode=1 invierte el eje Y, produciendo un espejo horizontal.",
+      "porque_erroneas": {
+        "a": "flipCode=0 sería espejo vertical (eje X).",
+        "c": "Para rotar 180° se usaría cv2.rotate con ROTATE_180.",
+        "d": "flip no invierte colores; bitwise_not sí."
+      },
+      "resumen": "flip(img, 1) = espejo horizontal."
+    }
+  },
+  {
+    "pregunta": "¿Qué hace este fragmento de código?\n```python\nimport cv2\nimport numpy as np\nimg = cv2.imread('logo.png')\nM = cv2.getRotationMatrix2D((100, 100), 45, 1)\nout = cv2.warpAffine(img, M, (200, 200))\n```",
+    "opciones": {
+      "a": "Rota la imagen 45° alrededor del punto (100,100) sin escalar",
+      "b": "Rota 45° y escala la imagen al doble de tamaño",
+      "c": "Traslada la imagen 100 píxeles en X e Y",
+      "d": "Aplica un filtro de desenfoque gaussiano"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "getRotationMatrix2D + warpAffine",
+      "porque_correcta": "getRotationMatrix2D((cx, cy), angle, scale) con scale=1 rota 45° alrededor de (100,100) sin cambiar tamaño; warpAffine aplica la transformación.",
+      "porque_erroneas": {
+        "b": "El factor de escala es 1, no 2.",
+        "c": "No es una traslación; la traslación requiere valores en la tercera columna.",
+        "d": "GaussianBlur aplica desenfoque, no warpAffine."
+      },
+      "resumen": "getRotationMatrix2D + warpAffine = rotación afín con punto central."
+    }
+  },
+  {
+    "pregunta": "¿Qué tipo de imagen devuelve este código?\n```python\nimport cv2\nimg = cv2.imread('scene.jpg')\nhsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)\nmask = cv2.inRange(hsv, (35, 50, 50), (85, 255, 255))\n```",
+    "opciones": {
+      "a": "Una imagen binaria (blanco/negro) con las regiones verdes seleccionadas",
+      "b": "Una imagen en escala de grises con el brillo de la escena",
+      "c": "Una imagen con los bordes detectados",
+      "d": "Un histograma de color de la imagen"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "inRange para segmentación por color",
+      "porque_correcta": "inRange devuelve una máscara binaria (255 donde el píxel está dentro del rango, 0 fuera); el rango HSV dado aproxima el verde.",
+      "porque_erroneas": {
+        "b": "cvtColor a HSV y luego inRange no produce escala de grises.",
+        "c": "Los bordes se detectan con Canny o Sobel.",
+        "d": "calcHist genera histogramas, no inRange."
+      },
+      "resumen": "inRange = máscara binaria de píxeles dentro de un rango HSV."
+    }
+  },
+  {
+    "pregunta": "¿Qué operación morfológica realiza este código?\n```python\nimport cv2\nimport numpy as np\nmask = cv2.imread('mask.png', 0)\nkernel = np.ones((5,5), np.uint8)\nres = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)\n```",
+    "opciones": {
+      "a": "Cierre (closing): dilatación seguida de erosión",
+      "b": "Apertura (opening): erosión seguida de dilatación",
+      "c": "Solo erosión",
+      "d": "Solo dilatación"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "MORPH_OPEN",
+      "porque_correcta": "MORPH_OPEN aplica erosión seguida de dilatación; elimina pequeños ruidos blancos del fondo.",
+      "porque_erroneas": {
+        "a": "MORPH_CLOSE es dilatación + erosión.",
+        "c": "MORPH_ERODE sería solo erosión.",
+        "d": "MORPH_DILATE sería solo dilatación."
+      },
+      "resumen": "MORPH_OPEN = erosión → dilatación (elimina ruido)."
+    }
+  },
+  {
+    "pregunta": "¿Qué hace este código en el contexto de redes neuronales con OpenCV?\n```python\nimport cv2\nimg = cv2.imread('person.jpg')\nblob = cv2.dnn.blobFromImage(img, 1.0, (300,300), (104.0, 177.0, 123.0), swapRB=False)\n```",
+    "opciones": {
+      "a": "Carga la topología de una red neuronal",
+      "b": "Prepara la imagen como blob de entrada para la red (tamaño 300x300, resta media, sin swapRB)",
+      "c": "Detecta caras directamente sin red neuronal",
+      "d": "Convierte la imagen a escala de grises"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "blobFromImage",
+      "porque_correcta": "blobFromImage normaliza, redimensiona a 300x300, resta los valores medios y crea el blob para setInput; swapRB=False conserva el orden BGR.",
+      "porque_erroneas": {
+        "a": "readNet carga la topología, no blobFromImage.",
+        "c": "Este código solo prepara la entrada; no detecta aún.",
+        "d": "No convierte a grises; genera un blob multicanal."
+      },
+      "resumen": "blobFromImage = preparación de imagen para entrada de red DNN."
+    }
+  },
+  {
+    "pregunta": "¿Qué imprime este código si la imagen tiene una cara visible?\n```python\nimport cv2\nimg = cv2.imread('selfie.jpg')\ndetector = cv2.FaceDetectorYN.create('yunet.onnx', '', (320,320))\nfaces, _ = detector.detect(img)\nprint(len(faces))\n```",
+    "opciones": {
+      "a": "El número de caras detectadas en la imagen",
+      "b": "La edad estimada de la persona",
+      "c": "El género de la persona detectada",
+      "d": "El nombre del fichero de la imagen"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "FaceDetectorYN",
+      "porque_correcta": "detect devuelve una matriz con las caras encontradas; len(faces) indica cuántas caras se detectaron.",
+      "porque_erroneas": {
+        "b": "FaceDetectorYN detecta caras, no estima edad.",
+        "c": "No determina género; eso requiere modelos adicionales.",
+        "d": "El nombre del fichero es 'selfie.jpg', no se imprime."
+      },
+      "resumen": "FaceDetectorYN.detect → array de caras detectadas."
+    }
+  },
+  {
+    "pregunta": "¿Qué hace este fragmento de código Python?\n```python\nfrom threading import Thread, Lock\nc = 0\nl = Lock()\ndef inc():\n    global c\n    for _ in range(1000):\n        l.acquire()\n        c += 1\n        l.release()\n```",
+    "opciones": {
+      "a": "Incrementa una variable compartida de forma segura entre hebras usando exclusión mutua",
+      "b": "Crea 1000 hebras nuevas",
+      "c": "Duplica el valor de c 1000 veces",
+      "d": "Bloquea el programa indefinidamente"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Lock en threading",
+      "porque_correcta": "El cerrojo (Lock) protege la zona crítica (c += 1) para que solo una hebra modifique c a la vez, evitando condiciones de carrera.",
+      "porque_erroneas": {
+        "b": "No crea hebras; solo define la función. Para crearlas habría que usar Thread().",
+        "c": "Incrementa en 1, no duplica.",
+        "d": "No bloquea indefinidamente; acquire/release libera el cerrojo."
+      },
+      "resumen": "Lock + acquire/release = zona crítica segura en hebras."
+    }
+  },
+  {
+    "pregunta": "¿Qué resultado espera el siguiente código con OpenCV?\n```python\nimport cv2\nimg = cv2.imread('coins.jpg', cv2.IMREAD_GRAYSCALE)\ncircles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 20,\n                         param1=50, param2=30, minRadius=10, maxRadius=60)\nprint(circles is not None)\n```",
+    "opciones": {
+      "a": "True si se detectó al menos un círculo en la imagen",
+      "b": "El número total de píxeles de la imagen",
+      "c": "La media de los radios detectados",
+      "d": "El área total ocupada por los círculos"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "HoughCircles",
+      "porque_correcta": "HoughCircles devuelve None si no encuentra círculos; por tanto circles is not None será True si detectó alguno.",
+      "porque_erroneas": {
+        "b": "El número de píxeles lo da img.size, no HoughCircles.",
+        "c": "Para la media de radios habría que calcularla manualmente.",
+        "d": "El área no se calcula directamente con HoughCircles."
+      },
+      "resumen": "HoughCircles devuelve None si no detecta círculos."
+    }
+  },
+  {
+    "pregunta": "¿Qué hace este fragmento de face_recognition?\n```python\nimport face_recognition as fr\nimg = fr.load_image_file('group.jpg')\nloc = fr.face_locations(img)\nenc = fr.face_encodings(img, loc)\n```",
+    "opciones": {
+      "a": "Carga la imagen, encuentra las caras y genera vectores característicos (embeddings) de cada una",
+      "b": "Compara las caras con una base de datos conocida",
+      "c": "Dibuja rectángulos alrededor de las caras detectadas",
+      "d": "Clasifica las caras por género y edad"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "face_locations + face_encodings",
+      "porque_correcta": "load_image_file carga la imagen; face_locations encuentra las coordenadas de las caras; face_encodings genera vectores de 128 valores para cada cara.",
+      "porque_erroneas": {
+        "b": "compare_faces es la función que compara con caras conocidas.",
+        "c": "No dibuja rectángulos; para eso se usaría OpenCV.",
+        "d": "face_recognition no clasifica por género ni edad."
+      },
+      "resumen": "face_encodings = vectores característicos (embeddings) de caras."
+    }
   }
 ]

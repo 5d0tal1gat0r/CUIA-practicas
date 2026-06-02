@@ -758,5 +758,885 @@
       },
       "resumen": "forward() = propagación hacia adelante de la red."
     }
+  },
+  {
+    "pregunta": "Para mostrar una imagen en una ventana emergente con OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.plot",
+      "b": "cv2.imshow",
+      "c": "cv2.display",
+      "d": "cv2.render"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Mostrar imágenes en OpenCV",
+      "porque_correcta": "imshow crea una ventana con el nombre indicado y muestra la imagen; waitKey se usa después para pausar.",
+      "porque_erroneas": {
+        "a": "plot no es una función de OpenCV; está en matplotlib.",
+        "c": "display no existe en el API de OpenCV.",
+        "d": "render no es una función de OpenCV."
+      },
+      "resumen": "imshow + waitKey = ventana emergente en OpenCV."
+    }
+  },
+  {
+    "pregunta": "Para esperar una pulsación de tecla en una ventana de OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.pause",
+      "b": "cv2.waitKey",
+      "c": "cv2.sleep",
+      "d": "cv2.input"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "waitKey",
+      "porque_correcta": "waitKey(milisegundos) pausa la ejecución; 0 = pausa indefinida hasta pulsar una tecla.",
+      "porque_erroneas": {
+        "a": "No existe cv2.pause.",
+        "c": "sleep es de time, no de OpenCV.",
+        "d": "input es de Python, no de OpenCV."
+      },
+      "resumen": "waitKey controla la pausa y captura teclas en ventanas OpenCV."
+    }
+  },
+  {
+    "pregunta": "Para destruir todas las ventanas creadas por OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.closeAll",
+      "b": "cv2.destroyAllWindows",
+      "c": "cv2.clearWindows",
+      "d": "cv2.deleteWindows"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Liberar ventanas OpenCV",
+      "porque_correcta": "destroyAllWindows cierra y libera todas las ventanas creadas por imshow / namedWindow.",
+      "porque_erroneas": {
+        "a": "closeAll no existe en el API de OpenCV.",
+        "c": "clearWindows no es una función de OpenCV.",
+        "d": "deleteWindows no existe."
+      },
+      "resumen": "destroyAllWindows libera todas las ventanas de highgui."
+    }
+  },
+  {
+    "pregunta": "Matplotlib espera las imágenes en el espacio de color...",
+    "opciones": {
+      "a": "BGR",
+      "b": "RGB",
+      "c": "HSV",
+      "d": "Grayscale"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Matplotlib y espacios de color",
+      "porque_correcta": "matplotlib.pyplot.imshow interpreta por defecto canales en orden RGB, por eso las imágenes BGR de OpenCV salen con los colores cambiados.",
+      "porque_erroneas": {
+        "a": "BGR es el orden nativo de OpenCV, no de matplotlib.",
+        "c": "HSV no es el formato que espera imshow por defecto.",
+        "d": "Grayscale se muestra con cmap='gray', pero no es el formato por defecto de color."
+      },
+      "resumen": "Matplotlib = RGB; OpenCV = BGR."
+    }
+  },
+  {
+    "pregunta": "La propiedad shape de una imagen cargada con OpenCV devuelve...",
+    "opciones": {
+      "a": "El tamaño del fichero en bytes",
+      "b": "Una tupla con filas, columnas y canales",
+      "c": "La resolución en DPI",
+      "d": "El espacio de color"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Propiedad shape",
+      "porque_correcta": "shape es una propiedad NumPy que devuelve (altura, anchura, canales) para imágenes a color.",
+      "porque_erroneas": {
+        "a": "El tamaño del fichero no está en la matriz.",
+        "c": "DPI es metadato, no forma parte de la matriz.",
+        "d": "El espacio de color no se infiere automáticamente de shape."
+      },
+      "resumen": "shape = (filas, columnas, canales)."
+    }
+  },
+  {
+    "pregunta": "Para dibujar texto sobre una imagen en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.drawText",
+      "b": "cv2.putText",
+      "c": "cv2.addText",
+      "d": "cv2.printText"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Texto en OpenCV",
+      "porque_correcta": "putText dibuja una cadena en la imagen indicando posición, fuente, escala, color y grosor.",
+      "porque_erroneas": {
+        "a": "drawText no existe en OpenCV.",
+        "c": "addText no existe en OpenCV.",
+        "d": "printText no existe en OpenCV."
+      },
+      "resumen": "putText = dibujar texto en una imagen."
+    }
+  },
+  {
+    "pregunta": "Para suavizar una imagen mediante un filtro gaussiano en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.blur",
+      "b": "cv2.GaussianBlur",
+      "c": "cv2.medianBlur",
+      "d": "cv2.bilateralFilter"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Filtro gaussiano",
+      "porque_correcta": "GaussianBlur aplica una convolución con kernel gaussiano; se indica el tamaño del kernel y la sigma.",
+      "porque_erroneas": {
+        "a": "blur usa un kernel uniforme (media), no gaussiano.",
+        "c": "medianBlur usa la mediana, útil para eliminar ruido sal y pimienta.",
+        "d": "bilateralFilter conserva bordes mientras suaviza."
+      },
+      "resumen": "GaussianBlur = desenfoque gaussiano."
+    }
+  },
+  {
+    "pregunta": "La función cv2.threshold con cv2.THRESH_BINARY devuelve...",
+    "opciones": {
+      "a": "Una imagen con bordes resaltados",
+      "b": "Una imagen binaria a partir de un umbral",
+      "c": "Un histograma acumulado",
+      "d": "Una imagen invertida"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Thresholding",
+      "porque_correcta": "threshold binariza la imagen: píxeles por encima del umbral se ponen a un valor máximo, el resto a 0.",
+      "porque_erroneas": {
+        "a": "Los bordes se detectan con Canny o Sobel.",
+        "c": "Los histogramas se calculan con calcHist.",
+        "d": "La inversión se hace con bitwise_not o THRESH_BINARY_INV."
+      },
+      "resumen": "THRESH_BINARY = imagen binaria por umbral fijo."
+    }
+  },
+  {
+    "pregunta": "Para calcular una transformación afín de rotación con punto central usamos...",
+    "opciones": {
+      "a": "cv2.getRotationMatrix2D",
+      "b": "cv2.getAffineTransform",
+      "c": "cv2.getPerspectiveTransform",
+      "d": "cv2.warpPerspective"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Matriz de rotación afín",
+      "porque_correcta": "getRotationMatrix2D devuelve una matriz 2x3 para rotar alrededor de un punto con escala, lista para warpAffine.",
+      "porque_erroneas": {
+        "b": "getAffineTransform necesita 3 puntos de correspondencia.",
+        "c": "getPerspectiveTransform usa 4 puntos para perspectiva.",
+        "d": "warpPerspective aplica la transformación, no la calcula."
+      },
+      "resumen": "getRotationMatrix2D = matriz de rotación + escala."
+    }
+  },
+  {
+    "pregunta": "Para obtener una transformación de perspectiva a partir de 4 puntos usamos...",
+    "opciones": {
+      "a": "cv2.getAffineTransform",
+      "b": "cv2.getRotationMatrix2D",
+      "c": "cv2.getPerspectiveTransform",
+      "d": "cv2.findHomography"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Transformación de perspectiva",
+      "porque_correcta": "getPerspectiveTransform calcula una matriz 3x3 a partir de 4 pares de puntos correspondientes.",
+      "porque_erroneas": {
+        "a": "getAffineTransform solo usa 3 pares de puntos.",
+        "b": "getRotationMatrix2D calcula rotación/escala, no perspectiva.",
+        "d": "findHomography también calcula homografía pero suele usarse con puntos clave."
+      },
+      "resumen": "getPerspectiveTransform = 4 puntos → matriz de perspectiva 3x3."
+    }
+  },
+  {
+    "pregunta": "Las operaciones morfológicas de erosión y dilatación actúan sobre...",
+    "opciones": {
+      "a": "Imágenes en color directamente",
+      "b": "Imágenes binarias o en escala de grises",
+      "c": "Solo sobre histogramas",
+      "d": "Sobre descriptores SIFT"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Operaciones morfológicas",
+      "porque_correcta": "Erosión y dilatación son operaciones sobre imágenes binarias o de un solo canal, usando un elemento estructurante.",
+      "porque_erroneas": {
+        "a": "Sobre color no tienen un significado morfológico directo sin conversión.",
+        "c": "Los histogramas no son imágenes espaciales.",
+        "d": "Los descriptores son vectores, no imágenes."
+      },
+      "resumen": "Erosión/dilatación se aplican a imágenes binarias o en grises."
+    }
+  },
+  {
+    "pregunta": "La operación de apertura (opening) en morfología consiste en...",
+    "opciones": {
+      "a": "Dilatación seguida de erosión",
+      "b": "Erosión seguida de dilatación",
+      "c": "Dos dilataciones consecutivas",
+      "d": "Dos erosiones consecutivas"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Opening morfológico",
+      "porque_correcta": "Opening = erosión + dilatación; elimina pequeños objetos del fondo y suaviza contornos.",
+      "porque_erroneas": {
+        "a": "Dilatación + erosión = closing (cierre).",
+        "c": "Dos dilataciones agrandan más las regiones blancas.",
+        "d": "Dos erosiones reducen más las regiones blancas."
+      },
+      "resumen": "Opening = erosión → dilatación, elimina ruido pequeño."
+    }
+  },
+  {
+    "pregunta": "Para calcular el histograma de una imagen en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.histogram",
+      "b": "cv2.calcHist",
+      "c": "cv2.countPixels",
+      "d": "cv2.freqCount"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Histograma",
+      "porque_correcta": "calcHist calcula el histograma de una o varias imágenes para los canales y rangos indicados.",
+      "porque_erroneas": {
+        "a": "histogram no existe en OpenCV.",
+        "c": "countPixels no es una función de OpenCV.",
+        "d": "freqCount no existe en OpenCV."
+      },
+      "resumen": "calcHist = histograma de intensidades."
+    }
+  },
+  {
+    "pregunta": "En una máscara binaria, el valor que indica que un píxel está seleccionado es habitualmente...",
+    "opciones": {
+      "a": "0",
+      "b": "255",
+      "c": "128",
+      "d": "-1"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Máscaras binarias",
+      "porque_correcta": "En uint8, 255 (blanco) representa la región activa/seleccionada y 0 (negro) la inactiva.",
+      "porque_erroneas": {
+        "a": "0 representa fondo/no seleccionado.",
+        "c": "128 es un valor intermedio de gris, no estándar en máscaras puras.",
+        "d": "-1 en uint8 se interpretaría como 255, pero no es el valor semántico estándar."
+      },
+      "resumen": "Máscara binaria: 255 = píxel seleccionado, 0 = no seleccionado."
+    }
+  },
+  {
+    "pregunta": "Para combinar dos imágenes usando una máscara binaria usamos típicamente...",
+    "opciones": {
+      "a": "cv2.addWeighted",
+      "b": "cv2.bitwise_and",
+      "c": "cv2.merge",
+      "d": "cv2.subtract"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Bitwise operations con máscaras",
+      "porque_correcta": "bitwise_and con máscara conserva los píxeles de la imagen donde la máscara es 255.",
+      "porque_erroneas": {
+        "a": "addWeighted mezcla por pesos globales, no por máscara binaria.",
+        "c": "merge une canales, no aplica máscara espacial.",
+        "d": "subtract resta píxeles, no selecciona por máscara."
+      },
+      "resumen": "bitwise_and + máscara = selección de regiones."
+    }
+  },
+  {
+    "pregunta": "El patrón Charuco para calibración es preferible a un ajedrez simple porque...",
+    "opciones": {
+      "a": "Usa menos imágenes para calibrar",
+      "b": "Permite oclusiones parciales gracias a los marcadores ArUco",
+      "c": "No requiere conocer el tamaño de las casillas",
+      "d": "Funciona sin necesidad de cámara"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Ventaja de Charuco",
+      "porque_correcta": "Los marcadores ArUco permiten identificar casillas aunque parte del tablero esté tapada u oculta.",
+      "porque_erroneas": {
+        "a": "No reduce necesariamente la cantidad de imágenes.",
+        "c": "Sí se necesita conocer el tamaño de las casillas.",
+        "d": "La calibración siempre requiere capturar imágenes con cámara."
+      },
+      "resumen": "Charuco tolera oclusiones parciales gracias a ArUco."
+    }
+  },
+  {
+    "pregunta": "Para obtener la pose (rotación y traslación) de un marcador ArUco respecto a la cámara usamos...",
+    "opciones": {
+      "a": "cv2.aruco.detectMarkers",
+      "b": "cv2.aruco.estimatePoseSingleMarkers",
+      "c": "cv2.solvePnP directamente sin marcadores",
+      "d": "cv2.calibrateCamera"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Pose estimation ArUco",
+      "porque_correcta": "estimatePoseSingleMarkers devuelve los vectores de rotación (rvec) y traslación (tvec) para cada marcador detectado.",
+      "porque_erroneas": {
+        "a": "detectMarkers solo encuentra los marcadores, no calcula pose.",
+        "c": "solvePnP requiere puntos 3D-2D; ArUco lo encapsula internamente.",
+        "d": "calibrateCamera estima parámetros intrínsecos, no pose de un frame."
+      },
+      "resumen": "estimatePoseSingleMarkers = rvec y tvec del marcador."
+    }
+  },
+  {
+    "pregunta": "Para convertir un vector de rotación en una matriz de rotación 3x3 usamos...",
+    "opciones": {
+      "a": "cv2.Rodrigues",
+      "b": "cv2.getRotationMatrix2D",
+      "c": "cv2.decomposeProjectionMatrix",
+      "d": "cv2.eigen"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Rodrigues",
+      "porque_correcta": "Rodrigues convierte entre vector de rotación (3x1) y matriz de rotación (3x3) y viceversa.",
+      "porque_erroneas": {
+        "b": "getRotationMatrix2D es para rotaciones 2D afines (imagen).",
+        "c": "decomposeProjectionMatrix descompone una matriz de proyección.",
+        "d": "eigen calcula autovalores/autovectores."
+      },
+      "resumen": "Rodrigues = vector de rotación ↔ matriz de rotación 3x3."
+    }
+  },
+  {
+    "pregunta": "En el contexto de Realidad Aumentada con Pygfx, el sistema de coordenadas de Pygfx (OpenGL)...",
+    "opciones": {
+      "a": "Es idéntico al de OpenCV",
+      "b": "Tiene una orientación distinta al de OpenCV, requiriendo conversión",
+      "c": "No usa ejes Y ni Z",
+      "d": "Solo funciona en 2D"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Sistemas de coordenadas Pygfx/OpenGL vs OpenCV",
+      "porque_correcta": "OpenGL/Pygfx tiene la Z apuntando hacia el observador y la Y hacia arriba, diferente de OpenCV; se requiere invertir ejes Y y Z.",
+      "porque_erroneas": {
+        "a": "No son idénticos; la conversión es necesaria.",
+        "c": "Sí usa ejes Y y Z, pero con convenciones distintas.",
+        "d": "Pygfx es una biblioteca 3D, no solo 2D."
+      },
+      "resumen": "Pygfx/OpenGL requiere adaptar los ejes de la pose de OpenCV."
+    }
+  },
+  {
+    "pregunta": "Para renderizar modelos 3D en formato glTF dentro de una escena Pygfx usamos la clase...",
+    "opciones": {
+      "a": "cv2.dnn.Net",
+      "b": "cuia.modeloGLTF",
+      "c": "cv2.aruco.CharucoBoard",
+      "d": "face_recognition.face_encodings"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Modelos 3D en Pygfx",
+      "porque_correcta": "En los notebooks de prácticas se usa la clase modeloGLTF definida en cuia.py para cargar y manipular modelos glTF.",
+      "porque_erroneas": {
+        "a": "cv2.dnn.Net es para redes neuronales, no modelos 3D.",
+        "c": "CharucoBoard es para calibración de cámara.",
+        "d": "face_encodings es para reconocimiento facial, no gráficos 3D."
+      },
+      "resumen": "modeloGLTF = carga de modelos glTF en Pygfx."
+    }
+  },
+  {
+    "pregunta": "Los clasificadores en cascada de Haar en OpenCV se cargan desde un fichero con extensión...",
+    "opciones": {
+      "a": ".json",
+      "b": ".xml",
+      "c": ".h5",
+      "d": ".onnx"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Clasificadores Haar",
+      "porque_correcta": "Los clasificadores entrenados se distribuyen en ficheros XML que contienen los parámetros del clasificador en cascada.",
+      "porque_erroneas": {
+        "a": "JSON no es el formato de los clasificadores Haar de OpenCV.",
+        "c": ".h5 es típico de Keras/TensorFlow, no de Haar.",
+        "d": ".onnx es para modelos de deep learning, no para Haar."
+      },
+      "resumen": "Haar cascades = ficheros XML con el modelo entrenado."
+    }
+  },
+  {
+    "pregunta": "El parámetro scaleFactor de detectMultiScale en clasificadores Haar indica...",
+    "opciones": {
+      "a": "El número mínimo de detecciones vecinas",
+      "b": "El factor de escala entre sucesivas búsquedas de tamaño",
+      "c": "El tamaño mínimo del objeto",
+      "d": "El umbral de confianza"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "scaleFactor en Haar",
+      "porque_correcta": "scaleFactor indica cuánto se reduce la imagen en cada pasada (por ejemplo 1.1 = 10% menor); valores más cercanos a 1 son más precisos pero más lentos.",
+      "porque_erroneas": {
+        "a": "El número mínimo de vecinos es minNeighbors.",
+        "c": "El tamaño mínimo se indica con minSize.",
+        "d": "Haar cascades no usan un umbral de confianza explícito como DNN."
+      },
+      "resumen": "scaleFactor = reducción de escala entre pasadas de búsqueda."
+    }
+  },
+  {
+    "pregunta": "Una limitación de los clasificadores Haar es que...",
+    "opciones": {
+      "a": "Consumen mucha GPU",
+      "b": "Tienen problemas con rotaciones fuera de la vista entrenada",
+      "c": "No pueden detectar caras",
+      "d": "Solo funcionan con imágenes en color"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Limitaciones Haar",
+      "porque_correcta": "Un clasificador entrenado con caras de frente no detectará perfiles ni rotaciones significativas.",
+      "porque_erroneas": {
+        "a": "Haar es ligero y funciona bien en CPU.",
+        "c": "Precisamente incluyen clasificadores pre-entrenados para caras.",
+        "d": "Funcionan sobre imágenes en escala de grises."
+      },
+      "resumen": "Haar cascades = rápidos pero sensibles a rotaciones."
+    }
+  },
+  {
+    "pregunta": "Para detectar caras, ojos y sonrisas con clasificadores Haar en cascada usamos...",
+    "opciones": {
+      "a": "Un único clasificador que detecta todo a la vez",
+      "b": "Varios clasificadores especializados (cara, ojo, sonrisa) en regiones de interés",
+      "c": "Una red neuronal profunda",
+      "d": "Solo el clasificador de ojos sobre la imagen completa"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Cascadas múltiples",
+      "porque_correcta": "Se detecta primero la cara y luego se buscan ojos/sonrisa dentro de la región de la cara usando clasificadores específicos.",
+      "porque_erroneas": {
+        "a": "No existe un único clasificador para todo; se usan varios XML.",
+        "c": "Las redes neuronales profundas son DNN, no Haar cascades.",
+        "d": "Buscar solo ojos en la imagen completa generaría muchos falsos positivos."
+      },
+      "resumen": "Cascadas Haar múltiples: cara → ojos/sonrisa en ROI."
+    }
+  },
+  {
+    "pregunta": "El módulo cv2.dnn de OpenCV permite...",
+    "opciones": {
+      "a": "Entrenar redes neuronales desde cero",
+      "b": "Cargar y ejecutar redes neuronales pre-entrenadas de otros frameworks",
+      "c": "Diseñar arquitecturas de redes neuronales",
+      "d": "Compilar OpenCV con soporte CUDA"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Módulo dnn de OpenCV",
+      "porque_correcta": "cv2.dnn carga modelos entrenados en Caffe, TensorFlow, Darknet, ONNX, etc., pero no ofrece herramientas de entrenamiento.",
+      "porque_erroneas": {
+        "a": "OpenCV no entrena redes; solo las ejecuta (inferencia).",
+        "c": "Las arquitecturas se definen en los frameworks originales.",
+        "d": "CUDA se habilita en compilación, no es función de dnn."
+      },
+      "resumen": "cv2.dnn = inferencia de redes pre-entrenadas."
+    }
+  },
+  {
+    "pregunta": "El parámetro swapRB de cv2.dnn.blobFromImage sirve para...",
+    "opciones": {
+      "a": "Cambiar el tamaño de la imagen",
+      "b": "Intercambiar los canales R y B (BGR ↔ RGB)",
+      "c": "Aplicar un filtro de desenfoque",
+      "d": "Normalizar los valores entre 0 y 1"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "swapRB en blobFromImage",
+      "porque_correcta": "swapRB=True intercambia los canales azul y rojo, necesario porque OpenCV usa BGR pero muchas redes esperan RGB.",
+      "porque_erroneas": {
+        "a": "El tamaño se controla con el parámetro size.",
+        "c": "blobFromImage no aplica desenfoque.",
+        "d": "La normalización se controla con scalefactor."
+      },
+      "resumen": "swapRB = intercambiar canales R y B para la red."
+    }
+  },
+  {
+    "pregunta": "La función cv2.dnn.blobFromImage adapta la imagen de entrada cambiando...",
+    "opciones": {
+      "a": "Solo el tamaño",
+      "b": "Tamaño, escala, canales y valor medio restado",
+      "c": "Solo el espacio de color",
+      "d": "Solo el tipo de dato a uint8"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "blobFromImage",
+      "porque_correcta": "blobFromImage redimensiona, escala, resta valores medios y opcionalmente intercambia canales para crear un blob compatible.",
+      "porque_erroneas": {
+        "a": "No solo cambia el tamaño; también normaliza y reordena.",
+        "c": "Hace más que solo cambiar el espacio de color.",
+        "d": "El tipo de salida por defecto es CV_32F, no uint8."
+      },
+      "resumen": "blobFromImage = tamaño + escala + media + canales."
+    }
+  },
+  {
+    "pregunta": "Para detectar caras con la red YuNet integrada en OpenCV creamos un objeto...",
+    "opciones": {
+      "a": "cv2.dnn.readNetFromCaffe",
+      "b": "cv2.FaceDetectorYN",
+      "c": "cv2.CascadeClassifier",
+      "d": "cv2.face.LBPHFaceRecognizer"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "YuNet en OpenCV",
+      "porque_correcta": "FaceDetectorYN es la clase específica de OpenCV para detección de caras usando modelos ONNX como YuNet.",
+      "porque_erroneas": {
+        "a": "readNetFromCaffe carga redes generales, no la API especializada de cara.",
+        "c": "CascadeClassifier es para Haar/LBP, no para YuNet.",
+        "d": "LBPHFaceRecognizer es para reconocimiento facial clásico, no detección."
+      },
+      "resumen": "FaceDetectorYN = detector de caras YuNet en OpenCV."
+    }
+  },
+  {
+    "pregunta": "En reconocimiento facial con la librería face_recognition, la tolerancia por defecto de compare_faces es...",
+    "opciones": {
+      "a": "0.5",
+      "b": "0.6",
+      "c": "0.8",
+      "d": "1.0"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Tolerancia en face_recognition",
+      "porque_correcta": "La tolerancia por defecto es 0.6; valores más bajos hacen el sistema más estricto (menos falsos positivos).",
+      "porque_erroneas": {
+        "a": "0.5 sería más estricto que el valor por defecto.",
+        "c": "0.8 sería más permisivo.",
+        "d": "1.0 permitiría comparar cualquier cara como coincidente."
+      },
+      "resumen": "compare_faces tolerance por defecto = 0.6."
+    }
+  },
+  {
+    "pregunta": "Para capturar audio del micrófono con la biblioteca SpeechRecognition necesitamos instalar...",
+    "opciones": {
+      "a": "TensorFlow",
+      "b": "PyAudio",
+      "c": "OpenVINO",
+      "d": "Jupyter"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Dependencia de audio",
+      "porque_correcta": "PyAudio proporciona acceso al micrófono para grabar audio en tiempo real en Python.",
+      "porque_erroneas": {
+        "a": "TensorFlow es para machine learning, no captura de audio.",
+        "c": "OpenVINO es para inferencia optimizada en Intel.",
+        "d": "Jupyter es un entorno de notebooks, no captura audio."
+      },
+      "resumen": "PyAudio = acceso al micrófono en Python."
+    }
+  },
+  {
+    "pregunta": "Para reconocer voz a partir de un archivo de audio con SpeechRecognition usamos...",
+    "opciones": {
+      "a": "recognize_file",
+      "b": "recognize_google con AudioFile",
+      "c": "listen_to_file",
+      "d": "transcribe_audio"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Reconocimiento desde archivo",
+      "porque_correcta": "Se crea un AudioFile o se graba con Microphone, y luego se llama a recognize_google (o recognize_sphinx, etc.) sobre la instancia de Recognizer.",
+      "porque_erroneas": {
+        "a": "recognize_file no existe en SpeechRecognition.",
+        "c": "listen_to_file no es un método de la librería.",
+        "d": "transcribe_audio no forma parte del API."
+      },
+      "resumen": "AudioFile + recognize_google = transcripción de archivo."
+    }
+  },
+  {
+    "pregunta": "En el módulo threading de Python, el método join() de un Thread sirve para...",
+    "opciones": {
+      "a": "Iniciar la ejecución de la hebra",
+      "b": "Bloquear la hebra llamadora hasta que la otra hebra termine",
+      "c": "Finalizar forzosamente la hebra",
+      "d": "Crear una nueva hebra hija"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "join()",
+      "porque_correcta": "join() detiene la ejecución de la hebra que lo invoca hasta que la hebra objetivo finalice su tarea.",
+      "porque_erroneas": {
+        "a": "El inicio se hace con start().",
+        "c": "No finaliza forzosamente; solo espera a que termine.",
+        "d": "No crea hebras; solo espera."
+      },
+      "resumen": "join() = sincronización por espera de terminación."
+    }
+  },
+  {
+    "pregunta": "Para declarar que una variable es global dentro de una función de hebra en Python usamos...",
+    "opciones": {
+      "a": "public",
+      "b": "global",
+      "c": "extern",
+      "d": "shared"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Variables globales en hebras",
+      "porque_correcta": "global indica que la variable usada pertenece al ámbito global del módulo, permitiendo compartir datos entre hebras.",
+      "porque_erroneas": {
+        "a": "public no existe en Python.",
+        "c": "extern es de C/C++, no de Python.",
+        "d": "shared no es una palabra clave de Python para este fin."
+      },
+      "resumen": "global = acceso a variables del módulo desde una función."
+    }
+  },
+  {
+    "pregunta": "En Python, el método is_alive() de un Thread devuelve...",
+    "opciones": {
+      "a": "El tiempo que lleva ejecutándose",
+      "b": "True si la hebra sigue ejecutándose",
+      "c": "El número de hebras activas",
+      "d": "La prioridad de la hebra"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "is_alive()",
+      "porque_correcta": "is_alive() devuelve True si la hebra aún no ha terminado su ejecución (está viva).",
+      "porque_erroneas": {
+        "a": "No devuelve tiempo; para eso se usaría time.",
+        "c": "Eso sería threading.active_count().",
+        "d": "Python no expone prioridades de hebra de forma directa con is_alive."
+      },
+      "resumen": "is_alive() = estado de ejecución de la hebra."
+    }
+  },
+  {
+    "pregunta": "Para instalar paquetes Python de forma aislada sin afectar al sistema se recomienda usar...",
+    "opciones": {
+      "a": "pip install --system",
+      "b": "Un entorno virtual (venv)",
+      "c": "sudo apt install python3",
+      "d": "Instalar siempre para todos los usuarios"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Entornos virtuales",
+      "porque_correcta": "Los entornos virtuales permiten instalar dependencias aisladas para un proyecto, evitando conflictos con el sistema.",
+      "porque_erroneas": {
+        "a": "--system instalaría en el Python global del sistema.",
+        "c": "apt instala paquetes del sistema, no entornos aislados.",
+        "d": "Instalar para todos los usuarios puede romper dependencias del sistema."
+      },
+      "resumen": "venv = aislamiento de dependencias Python."
+    }
+  },
+  {
+    "pregunta": "Para registrar un entorno virtual como kernel de Jupyter usamos...",
+    "opciones": {
+      "a": "jupyter install kernel",
+      "b": "python -m ipykernel install --user --name=NOMBRE",
+      "c": "pip register jupyter",
+      "d": "jupyter add-env"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Kernel en Jupyter",
+      "porque_correcta": "ipykernel permite registrar el intérprete del entorno virtual como kernel disponible en Jupyter.",
+      "porque_erroneas": {
+        "a": "No existe el comando jupyter install kernel.",
+        "c": "pip register jupyter no es un comando válido.",
+        "d": "jupyter add-env no existe."
+      },
+      "resumen": "ipykernel install = kernel de entorno virtual en Jupyter."
+    }
+  },
+  {
+    "pregunta": "El módulo cuia.py usado en los notebooks de prácticas sirve para...",
+    "opciones": {
+      "a": "Instalar OpenCV automáticamente",
+      "b": "Agrupar funciones auxiliares comunes (plot, popup, myVideo, importarCamara, etc.)",
+      "c": "Reemplazar completamente a NumPy",
+      "d": "Compilar extensiones de C++"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Módulo cuia.py",
+      "porque_correcta": "cuia.py contiene funciones de utilidad reutilizadas en los notebooks: mostrar imágenes, acceso a cámara, calibración, etc.",
+      "porque_erroneas": {
+        "a": "No instala paquetes; es código de utilidad.",
+        "c": "No reemplaza a NumPy; lo usa internamente.",
+        "d": "No compila extensiones; es puro Python."
+      },
+      "resumen": "cuia.py = utilidades comunes de los notebooks de práctica."
+    }
+  },
+  {
+    "pregunta": "Para dividir una imagen BGR en sus canales azul, verde y rojo usamos...",
+    "opciones": {
+      "a": "cv2.cvtColor",
+      "b": "cv2.split",
+      "c": "cv2.merge",
+      "d": "cv2.slice"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Separación de canales",
+      "porque_correcta": "cv2.split devuelve una lista con cada canal de la imagen por separado.",
+      "porque_erroneas": {
+        "a": "cvtColor convierte espacios de color, no separa canales.",
+        "c": "merge combina canales, no los separa.",
+        "d": "slice no es una función de OpenCV."
+      },
+      "resumen": "split = separar canales de una imagen."
+    }
+  },
+  {
+    "pregunta": "Para combinar canales individuales en una sola imagen multicanal usamos...",
+    "opciones": {
+      "a": "cv2.split",
+      "b": "cv2.merge",
+      "c": "cv2.add",
+      "d": "cv2.join"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Fusión de canales",
+      "porque_correcta": "cv2.merge toma una lista de matrices de un canal y las combina en una imagen multicanal.",
+      "porque_erroneas": {
+        "a": "split separa canales, los opuesto.",
+        "c": "add suma píxeles, no combina canales.",
+        "d": "join no existe en OpenCV."
+      },
+      "resumen": "merge = combinar canales en una imagen."
+    }
+  },
+  {
+    "pregunta": "El algoritmo ORB en OpenCV es una alternativa libre de patentes a...",
+    "opciones": {
+      "a": "Harris",
+      "b": "SIFT y SURF",
+      "c": "Hough",
+      "d": "Canny"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "ORB",
+      "porque_correcta": "ORB (Oriented FAST and Rotated BRIEF) fue diseñado como alternativa libre a SIFT y SURF, ambos patentados o con restricciones.",
+      "porque_erroneas": {
+        "a": "Harris es un detector de esquinas, no comparado con ORB en ese sentido.",
+        "c": "Hough detecta formas geométricas, no puntos clave descriptores.",
+        "d": "Canny detecta bordes, no es un descriptor."
+      },
+      "resumen": "ORB = alternativa libre a SIFT/SURF."
+    }
+  },
+  {
+    "pregunta": "Para realizar una detección de bordes con el algoritmo de Canny en OpenCV usamos...",
+    "opciones": {
+      "a": "cv2.Canny",
+      "b": "cv2.Sobel",
+      "c": "cv2.Laplacian",
+      "d": "cv2.cornerHarris"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Detección de bordes Canny",
+      "porque_correcta": "cv2.Canny aplica el algoritmo de detección de bordes de Canny con umbrales inferior y superior.",
+      "porque_erroneas": {
+        "b": "Sobel calcula gradientes pero no es el algoritmo completo de Canny.",
+        "c": "Laplacian es otro operador de detección de bordes.",
+        "d": "cornerHarris detecta esquinas, no bordes generales."
+      },
+      "resumen": "Canny = detección de bordes por doble umbral."
+    }
+  },
+  {
+    "pregunta": "La función cv2.VideoCapture se utiliza para...",
+    "opciones": {
+      "a": "Guardar un vídeo en disco",
+      "b": "Capturar vídeo desde una cámara o archivo",
+      "c": "Editar el contenido de un vídeo",
+      "d": "Convertir vídeo a imagen estática"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "VideoCapture",
+      "porque_correcta": "VideoCapture abre un flujo de vídeo desde un índice de cámara o una ruta de archivo para leer frames.",
+      "porque_erroneas": {
+        "a": "Para guardar vídeo se usa VideoWriter.",
+        "c": "No edita vídeo; solo captura frames.",
+        "d": "No convierte automáticamente a imagen estática."
+      },
+      "resumen": "VideoCapture = lectura de flujo de vídeo/cámara."
+    }
+  },
+  {
+    "pregunta": "Para obtener el ancho de un vídeo capturado con VideoCapture usamos...",
+    "opciones": {
+      "a": "cap.get(cv2.CAP_PROP_FRAME_WIDTH)",
+      "b": "cap.width",
+      "c": "cap.shape[1]",
+      "d": "cap.read()[0].shape"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Propiedades de vídeo",
+      "porque_correcta": "get con CAP_PROP_FRAME_WIDTH devuelve el ancho en píxeles del flujo de vídeo.",
+      "porque_erroneas": {
+        "b": "VideoCapture no tiene atributo width directamente.",
+        "c": "shape es de numpy arrays, no del objeto VideoCapture.",
+        "d": "read() devuelve (ret, frame); frame.shape daría el tamaño del frame leído."
+      },
+      "resumen": "CAP_PROP_FRAME_WIDTH = ancho del vídeo."
+    }
+  },
+  {
+    "pregunta": "La clase cuia.myVideo definida en los notebooks sirve principalmente para...",
+    "opciones": {
+      "a": "Entrenar redes neuronales",
+      "b": "Simplificar la captura y procesamiento frame a frame de la webcam",
+      "c": "Editar vídeos de YouTube",
+      "d": "Comprimir imágenes en JPEG"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "cuia.myVideo",
+      "porque_correcta": "myVideo encapsula VideoCapture permitiendo asignar una función de procesado que se aplica a cada frame de la webcam.",
+      "porque_erroneas": {
+        "a": "No entrena redes; es de captura de vídeo.",
+        "c": "No accede a YouTube; trabaja con cámaras locales.",
+        "d": "No comprime imágenes; captura y procesa frames."
+      },
+      "resumen": "myVideo = wrapper de VideoCapture con función de procesado."
+    }
   }
 ]

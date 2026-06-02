@@ -1638,5 +1638,465 @@
       },
       "resumen": "myVideo = wrapper de VideoCapture con función de procesado."
     }
+  },
+  {
+    "pregunta": "Según la definición del PDF, la Realidad Aumentada es la percepción directa o indirecta de un entorno real que ha sido...",
+    "opciones": {
+      "a": "Completamente reemplazado por un entorno virtual",
+      "b": "Realzado mediante información generada por computador interactiva en tiempo real",
+      "c": "Grabado en vídeo para su visualización posterior",
+      "d": "Procesado únicamente mediante inteligencia artificial offline"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Definición de Realidad Aumentada",
+      "porque_correcta": "El PDF define RA como la percepción de un entorno real realzado mediante información generada por computador, interactiva y en tiempo real.",
+      "porque_erroneas": {
+        "a": "Eso describe Realidad Virtual, no Aumentada.",
+        "c": "RA es en tiempo real, no grabación en diferido.",
+        "d": "RA requiere interacción en tiempo real, no solo procesamiento offline."
+      },
+      "resumen": "RA = entorno real + información virtual en tiempo real."
+    }
+  },
+  {
+    "pregunta": "Cuando el realzado de la realidad consiste en la eliminación de elementos, hablamos de...",
+    "opciones": {
+      "a": "Realidad Virtual",
+      "b": "Realidad Mixta",
+      "c": "Realidad Disminuida (Diminished Reality)",
+      "d": "Realidad Aumentada Avanzada"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Realidad Disminuida",
+      "porque_correcta": "El PDF menciona específicamente que cuando el realzado consiste en eliminar elementos se denomina Diminished Reality (Realidad Disminuida).",
+      "porque_erroneas": {
+        "a": "RV crea un mundo virtual completo, no elimina elementos del real.",
+        "b": "Realidad Mixta es la combinación de elementos reales y virtuales.",
+        "d": "No existe el término 'Realidad Aumentada Avanzada' en el PDF."
+      },
+      "resumen": "Diminished Reality = eliminación de elementos del entorno real."
+    }
+  },
+  {
+    "pregunta": "La diferencia fundamental entre Realidad Virtual y Realidad Aumentada según el PDF es que...",
+    "opciones": {
+      "a": "RA requiere gafas especiales y RV no",
+      "b": "RV traslada al usuario a un mundo virtual, mientras que RA traslada elementos virtuales al mundo real",
+      "c": "RA solo funciona en exteriores y RV en interiores",
+      "d": "RV es más moderna que RA"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "RV vs RA",
+      "porque_correcta": "El PDF establece que RV crea inmersión trasladando al usuario a un mundo virtual, mientras que RA traslada elementos virtuales al mundo real.",
+      "porque_erroneas": {
+        "a": "Ambas pueden usar dispositivos; no es la diferencia fundamental.",
+        "c": "No hay restricción de entorno en la definición.",
+        "d": "El PDF indica que RA fue acuñada en 1992 y RV popularizada en 1987."
+      },
+      "resumen": "RV = usuario al mundo virtual; RA = elementos virtuales al mundo real."
+    }
+  },
+  {
+    "pregunta": "El término 'Realidad Aumentada' fue acuñado en 1992 por Tom Caudell y David Mizell cuando trabajaban para...",
+    "opciones": {
+      "a": "Google",
+      "b": "Microsoft",
+      "c": "Boeing",
+      "d": "Apple"
+    },
+    "respuesta": "c",
+    "explicacion": {
+      "concepto": "Origen del término RA",
+      "porque_correcta": "Según el PDF, Caudell y Mizell acuñaron el término en 1992 al crear un dispositivo para Boeing que permitía localizar cableado de aviones.",
+      "porque_erroneas": {
+        "a": "Google desarrolló Google Glass en 2011, no acuñó el término.",
+        "b": "Microsoft no aparece en el contexto histórico del PDF.",
+        "d": "Apple no está mencionada en la línea temporal del PDF."
+      },
+      "resumen": "RA fue acuñado en 1992 por Caudell y Mizell para Boeing."
+    }
+  },
+  {
+    "pregunta": "En 1994, Paul Milgram y Fumio Kishino propusieron el diagrama del...",
+    "opciones": {
+      "a": "Continuo Realidad-Virtualidad",
+      "b": "Espacio de color RGB",
+      "c": "Modelo de Von Neumann",
+      "d": "Teorema de Nyquist"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Continuo Realidad-Virtualidad",
+      "porque_correcta": "El PDF menciona que en 1994 Milgram y Kishino propusieron el diagrama de Realidad-Virtualidad (continuo virtual).",
+      "porque_erroneas": {
+        "b": "El espacio RGB es de procesado de imagen, no de RA.",
+        "c": "Von Neumann es arquitectura de computadores.",
+        "d": "Nyquist es teoría de muestreo de señales."
+      },
+      "resumen": "Milgram y Kishino (1994) = Continuo Realidad-Virtualidad."
+    }
+  },
+  {
+    "pregunta": "La 'Espada de Damocles', creada por Ivan Sutherland en 1968, fue...",
+    "opciones": {
+      "a": "Un smartphone con capacidades AR",
+      "b": "Un casco visor (HMD) que permitía visualizar elementos virtuales en el mundo real",
+      "c": "Un software de reconocimiento facial",
+      "d": "Una red neuronal para procesado de imágenes"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Espada de Damocles",
+      "porque_correcta": "Según el PDF, Sutherland creó en 1968 un HMD (Head Mounted Display) que mostraba elementos virtuales sobre el mundo real.",
+      "porque_erroneas": {
+        "a": "Los smartphones no existían en 1968.",
+        "c": "No era software de reconocimiento facial.",
+        "d": "Las redes neuronales profundas no estaban disponibles en 1968."
+      },
+      "resumen": "Espada de Damocles = primer HMD de RA (1968)."
+    }
+  },
+  {
+    "pregunta": "Ronald Azuma dio en 1997 la primera definición ampliamente aceptada de Realidad Aumentada, que incluye...",
+    "opciones": {
+      "a": "Solo visualización 2D estática",
+      "b": "Combinación de mundo real y virtual en 3D, interactiva y en tiempo real",
+      "c": "Realidad virtual completa inmersiva",
+      "d": "Procesamiento de audio únicamente"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Definición de Azuma (1997)",
+      "porque_correcta": "El PDF cita que Azuma definió RA como combinación de mundo real y virtual en 3D, interactiva y en tiempo real.",
+      "porque_erroneas": {
+        "a": "La definición incluye 3D e interacción, no 2D estático.",
+        "c": "Eso describe Realidad Virtual, no Aumentada.",
+        "d": "La definición no se limita al audio."
+      },
+      "resumen": "Azuma (1997): RA = real+virtual en 3D, interactiva, tiempo real."
+    }
+  },
+  {
+    "pregunta": "Para que la interacción con un sistema de Realidad Aumentada sea socialmente aceptable, debe ser...",
+    "opciones": {
+      "a": "Muy llamativa y visible para todos",
+      "b": "Sutil, discreta y no obstructiva",
+      "c": "Únicamente mediante gestos amplios",
+      "d": "Siempre con notificaciones sonoras fuertes"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Aceptación social en RA",
+      "porque_correcta": "El PDF indica que la interacción debe ser sutil, discreta y no obstructiva para ser socialmente aceptable.",
+      "porque_erroneas": {
+        "a": "Ser llamativa y visible sería socialmente disruptiva.",
+        "c": "Los gestos amplios no son discretos ni sutiles.",
+        "d": "Las notificaciones fuertes son socialmente disruptivas."
+      },
+      "resumen": "RA socialmente aceptable = sutil, discreta, no obstructiva."
+    }
+  },
+  {
+    "pregunta": "Los tres grandes grupos de displays para Realidad Aumentada según el PDF son...",
+    "opciones": {
+      "a": "LCD, LED y OLED",
+      "b": "Display en la cabeza, display de mano y display espacial",
+      "c": "Monitor, proyector y tablet",
+      "d": "Táctil, holográfico y retráctil"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Clasificación de displays RA",
+      "porque_correcta": "El PDF clasifica los displays en: display en la cabeza, display de mano y display espacial.",
+      "porque_erroneas": {
+        "a": "LCD/LED/OLED son tecnologías de panel, no grupos de displays RA.",
+        "c": "Monitor/proyector/tablet no es la clasificación del PDF.",
+        "d": "No son categorías mencionadas en el documento."
+      },
+      "resumen": "Displays RA = cabeza, mano, espacial."
+    }
+  },
+  {
+    "pregunta": "Un display de retina proyecta la imagen directamente sobre la retina y tiene como limitación que...",
+    "opciones": {
+      "a": "Requiere gafas de realidad virtual",
+      "b": "Solo muestra imágenes monocromas (rojo) y tiene distancia focal fija",
+      "c": "No funciona en exteriores",
+      "d": "Consume mucha energía de la red eléctrica"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Display de retina",
+      "porque_correcta": "El PDF indica que los displays de retina ofrecen alta resolución y bajo consumo, pero solo muestran imágenes monocromas (rojo) y tienen distancia focal fija.",
+      "porque_erroneas": {
+        "a": "No requiere gafas VR; es proyección directa.",
+        "c": "No se menciona restricción de exterior como limitación principal.",
+        "d": "El PDF destaca bajo consumo, no alto."
+      },
+      "resumen": "Display retina = monocromo rojo + distancia focal fija."
+    }
+  },
+  {
+    "pregunta": "En un Head Mounted Display (HMD) con pantalla óptica transparente (optical see-through)...",
+    "opciones": {
+      "a": "El mundo real se captura por cámaras y se mezcla digitalmente",
+      "b": "Solo la información virtual se ve con baja resolución y hay problemas de sincronización",
+      "c": "Se proyecta directamente sobre la retina del usuario",
+      "d": "No permite ver el mundo real a través de las lentes"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Optical see-through HMD",
+      "porque_correcta": "El PDF señala que en optical see-through solo la información virtual se ve con baja resolución y existen problemas de sincronización.",
+      "porque_erroneas": {
+        "a": "Eso describe video see-through, no optical see-through.",
+        "c": "La proyección sobre retina es display de retina, no HMD óptico.",
+        "d": "El optical see-through sí permite ver el mundo real a través de las lentes."
+      },
+      "resumen": "Optical see-through = baja resolución virtual + problemas sincronización."
+    }
+  },
+  {
+    "pregunta": "Los displays espaciales de realzado directo proyectan una imagen sobre la superficie de un objeto y...",
+    "opciones": {
+      "a": "Siempre requieren gafas especiales",
+      "b": "La percepción de profundidad es correcta, pero pueden necesitar múltiples proyectores",
+      "c": "No funcionan en entornos oscuros",
+      "d": "Solo muestran contenido monocromo"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Realzado directo",
+      "porque_correcta": "El PDF indica que el realzado directo ofrece correcta percepción de profundidad, pero si se proyecta un objeto 3D la percepción depende del observador y pueden ser necesarios múltiples proyectores.",
+      "porque_erroneas": {
+        "a": "No requieren gafas; son displays espaciales.",
+        "c": "Funcionan en diversas condiciones de iluminación.",
+        "d": "No se limita a contenido monocromo."
+      },
+      "resumen": "Realzado directo = proyección sobre objeto, percepción correcta, múltiples proyectores posibles."
+    }
+  },
+  {
+    "pregunta": "Un marcador sintético en RA se diferencia de un código QR porque...",
+    "opciones": {
+      "a": "Los códigos QR no se pueden detectar rápidamente",
+      "b": "Los códigos QR almacenan información que obliga a usar cuadritos más pequeños, dificultando la detección a distancia",
+      "c": "Los marcadores sintéticos son más grandes físicamente",
+      "d": "Los códigos QR no funcionan con cámaras digitales"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Marcadores sintéticos vs QR",
+      "porque_correcta": "El PDF explica que un código QR sí puede usarse como marcador por su detección rápida, pero no es conveniente porque la información almacenada obliga a cuadritos más pequeños que son más difíciles de detectar de lejos.",
+      "porque_erroneas": {
+        "a": "Los QR sí se detectan rápidamente, según el PDF.",
+        "c": "El tamaño físico no es el factor diferenciador mencionado.",
+        "d": "Los QR funcionan con cámaras digitales."
+      },
+      "resumen": "QR como marcador = posible pero inconveniente (cuadritos pequeños)."
+    }
+  },
+  {
+    "pregunta": "Para determinar la posición relativa de la cámara conociendo el marcador original y su perspectiva percibida, calculamos la...",
+    "opciones": {
+      "a": "Distancia euclídea",
+      "b": "Homografía",
+      "c": "Desviación estándar",
+      "d": "Entropía de Shannon"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Homografía en RA",
+      "porque_correcta": "El PDF indica que se calcula la homografía entre el marcador original y el percibido para determinar la posición relativa de la cámara.",
+      "porque_erroneas": {
+        "a": "La distancia euclídea no determina la transformación de perspectiva.",
+        "c": "La desviación estándar es estadística, no geométrica.",
+        "d": "La entropía de Shannon es teoría de la información."
+      },
+      "resumen": "Homografía = transformación entre marcador original y su imagen en perspectiva."
+    }
+  },
+  {
+    "pregunta": "Según el PDF, un buen seguimiento (tracking) en RA es imprescindible para que...",
+    "opciones": {
+      "a": "La cámara gaste menos batería",
+      "b": "Los elementos virtuales parezcan 'anclados' al mundo real",
+      "c": "El usuario no necesite interactuar",
+      "d": "La aplicación funcione sin conexión a internet"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Tracking en RA",
+      "porque_correcta": "El PDF afirma que el usuario debe percibir los elementos virtuales 'anclados' al mundo real, lo que requiere un buen seguimiento.",
+      "porque_erroneas": {
+        "a": "El tracking no está relacionado directamente con el consumo de batería.",
+        "c": "El tracking no elimina la necesidad de interacción.",
+        "d": "El funcionamiento offline no depende exclusivamente del tracking."
+      },
+      "resumen": "Tracking = anclaje de elementos virtuales al mundo real."
+    }
+  },
+  {
+    "pregunta": "El SLAM en el contexto de RA significa...",
+    "opciones": {
+      "a": "Simultaneous Localization And Mapping",
+      "b": "Spatial Light Augmentation Method",
+      "c": "Synthetic Laser Active Marker",
+      "d": "Stereo Lens Alignment Module"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "SLAM",
+      "porque_correcta": "El PDF lista SLAM como Simultaneous Localization And Mapping, una técnica de seguimiento.",
+      "porque_erroneas": {
+        "b": "No es un método de aumento de luz espacial.",
+        "c": "No es un marcador láser sintético.",
+        "d": "No es un módulo de alineación de lentes estéreo."
+      },
+      "resumen": "SLAM = Simultaneous Localization And Mapping."
+    }
+  },
+  {
+    "pregunta": "Los problemas de percepción del mundo real con marcadores mencionados en el PDF incluyen...",
+    "opciones": {
+      "a": "Solo la pérdida de señal GPS",
+      "b": "Oclusión, desenfoque, imagen movida e iluminación desigual",
+      "c": "Exceso de resolución de la cámara",
+      "d": "Falta de color en la imagen"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Problemas de percepción con marcadores",
+      "porque_correcta": "El PDF enumera oclusión, desenfoque, imagen movida e iluminación desigual como problemas.",
+      "porque_erroneas": {
+        "a": "El GPS no es un problema de percepción de marcadores visuales.",
+        "c": "Exceso de resolución no es un problema; la falta de ella sí.",
+        "d": "El color no se menciona como problema de percepción."
+      },
+      "resumen": "Problemas marcadores = oclusión, desenfoque, movimiento, iluminación."
+    }
+  },
+  {
+    "pregunta": "Las aplicaciones de Realidad Aumentada mencionadas en el PDF incluyen...",
+    "opciones": {
+      "a": "Solo entretenimiento y juegos",
+      "b": "Publicidad, ocio, asistencia a discapacitados, rendimiento laboral y adiestramiento",
+      "c": "Únicamente aplicaciones militares",
+      "d": "Solo educación infantil"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Aplicaciones de RA",
+      "porque_correcta": "El PDF lista: publicidad, ocio, asistencia a discapacitados, aumento del rendimiento en el trabajo y adiestramiento de personal.",
+      "porque_erroneas": {
+        "a": "No se limita al entretenimiento y juegos.",
+        "c": "No se mencionan únicamente aplicaciones militares.",
+        "d": "No se restringe a educación infantil."
+      },
+      "resumen": "Aplicaciones RA = publicidad, ocio, accesibilidad, productividad, formación."
+    }
+  },
+  {
+    "pregunta": "Según el PDF, los displays de mano (handheld) para RA tienen como ventaja principal la...",
+    "opciones": {
+      "a": "Alta potencia de cómputo",
+      "b": "Omnipresencia de dispositivos",
+      "c": "Óptica de muy alta calidad",
+      "d": "Gran campo de visión"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Displays de mano",
+      "porque_correcta": "El PDF destaca la omnipresencia de dispositivos como principal ventaja, aunque reconoce menor potencia, óptica peor y campo de visión reducido.",
+      "porque_erroneas": {
+        "a": "El PDF indica menor potencia de cómputo.",
+        "c": "Se menciona óptica de menor calidad.",
+        "d": "El campo de visión es reducido, no grande."
+      },
+      "resumen": "Handheld RA = omnipresencia, pero limitaciones de hardware."
+    }
+  },
+  {
+    "pregunta": "Para crear Realidad Aumentada, el proceso descrito en el PDF consta de tres pasos: percepción del mundo real, determinación del mundo virtual y...",
+    "opciones": {
+      "a": "Representación combinada de mundo real y mundo virtual",
+      "b": "Exportación a formato PDF",
+      "c": "Compresión de datos para streaming",
+      "d": "Análisis de sentimientos del usuario"
+    },
+    "respuesta": "a",
+    "explicacion": {
+      "concepto": "Proceso de creación de RA",
+      "porque_correcta": "El PDF describe: 1) Percepción del estado actual del mundo real, 2) Determinación del estado del mundo virtual, 3) Representación combinada de ambos.",
+      "porque_erroneas": {
+        "b": "La exportación a PDF no es parte del proceso de RA.",
+        "c": "La compresión para streaming no se menciona como paso.",
+        "d": "El análisis de sentimientos no forma parte del proceso descrito."
+      },
+      "resumen": "Creación RA = percepción real + estado virtual + representación combinada."
+    }
+  },
+  {
+    "pregunta": "La interacción en Realidad Aumentada según el PDF debe ser...",
+    "opciones": {
+      "a": "Completamente automatizada sin intervención del usuario",
+      "b": "Natural y centrada en la actividad que quiere realizar el usuario",
+      "c": "Basada únicamente en comandos de voz complejos",
+      "d": "Requerir siempre un teclado físico"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Interacción en RA",
+      "porque_correcta": "El PDF indica que el usuario debe centrarse en la actividad, no en la tecnología; la interacción debe ser natural.",
+      "porque_erroneas": {
+        "a": "La RA es interactiva, no completamente automatizada.",
+        "c": "No se limita a comandos de voz complejos.",
+        "d": "No requiere teclado físico; busca naturalidad."
+      },
+      "resumen": "Interacción RA = centrada en la actividad, natural."
+    }
+  },
+  {
+    "pregunta": "ARToolkit, creado por Hirokazu Kato en 1999, fue una herramienta importante para...",
+    "opciones": {
+      "a": "Entrenar redes neuronales profundas",
+      "b": "Desarrollar aplicaciones de Realidad Aumentada basadas en marcadores",
+      "c": "Crear animaciones 3D para cine",
+      "d": "Procesar señales de audio en tiempo real"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "ARToolkit",
+      "porque_correcta": "ARToolkit (1999) fue una biblioteca pionera para el desarrollo de aplicaciones RA basadas en marcadores visuales.",
+      "porque_erroneas": {
+        "a": "No era para entrenar redes neuronales profundas.",
+        "c": "No era una herramienta de animación para cine.",
+        "d": "No procesaba señales de audio."
+      },
+      "resumen": "ARToolkit (1999) = desarrollo de RA con marcadores."
+    }
+  },
+  {
+    "pregunta": "La principal desventaja de los Head Mounted Projector según el PDF es que...",
+    "opciones": {
+      "a": "Requieren lentes muy pesados",
+      "b": "Tienen brillo y resolución limitados, requieren superficies especiales y dependen de la iluminación ambiental",
+      "c": "No permiten ver el mundo real",
+      "d": "Son demasiado caros para uso doméstico"
+    },
+    "respuesta": "b",
+    "explicacion": {
+      "concepto": "Head Mounted Projector",
+      "porque_correcta": "El PDF lista como desventajas: brillo y resolución limitados, necesidad de superficies especiales y dependencia de la iluminación ambiental.",
+      "porque_erroneas": {
+        "a": "Precisamente evitan el uso de lentes pesados.",
+        "c": "Sí permiten ver el mundo real al proyectar sobre superficies.",
+        "d": "El costo no se menciona como desventaja principal en el PDF."
+      },
+      "resumen": "HMP = brillo/resolución limitados, superficies especiales, iluminación."
+    }
   }
 ]
